@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang='it'>
+
+    <head>
+        <meta charset='utf-8'>
+        <title>Documentazione</title>
+    </head>
+
+    <style>
+        body{
+            background-color:maroon;
+
+        }
+
+        div{
+            width: 45vw;
+            transform: translateX(-50%);
+            left: 50%;
+            background-color: sienna;
+            border: 0.3vw solid black;
+            border-radius: 0.4vw;
+            position: absolute;
+            text-align: center;
+            padding: 4vw;
+            margin-bottom: 5vw;
+            padding-bottom: 8vw;
+        }
+
+        h1,h2,h3,h4{
+            font-size:3vw;
+            font-family:impact;
+            color:maroon;
+            font-weight: bold;
+        }
+
+        h2,h3,h4{
+
+            font-size:2vw;
+        }
+
+        p,li{
+            font-size:1.5vw;
+            font-family:impact;
+            color:black;
+
+        }
+
+        b{
+            color:maroon;
+            font-size:1.6vw;
+        }
+
+        ul{
+            text-align: left;
+            display: inline-block;
+        }
+
+        button{
+            position:absolute;
+            top:97%;
+            transform: translateX(-50%);
+            left:50%;
+            background-color: transparent;
+            border: none;
+            font-size: 1.5vw;
+            font-family: impact;
+            color:black;
+            outline:none;
+        }
+
+        button:hover{
+            font-size:2vw;
+            color:darkgrey;
+        }
+    </style>
+
+    <body>
+
+        <div>
+            <h1>Manuale di utilizzo di Doom.js</h1>
+
+            <h2>Introduzione al servizio</h2>
+            <p>Doom.js è un gioco in due dimensioni a scorrimento laterale ispirato al famoso gioco Doom sviluppato nel 1993 da Id Softwere, tuttavia i disegni di Doom.js si riferiscono alla versione
+                del 2006 creata da Id Softwere e Bethesda.<br>
+                Doom.js è diviso in due modalità:il <b>gioco</b> e <b>l'editor</b>. Infatti, dopo essersi registrati al servizio, è possibile scegliere tramite un menù
+                se affrontare i livelli disponibili o creare un proprio livello.<br>
+                Dal menù è possibile anche visionare le proprie statistiche generali relative ai livelli affrontati.<br><br><br>
+            </p>
+
+            <h3>Gioco</h3>
+            <p>La schermata di scelta dei livelli è strutturata come una lista di livelli ordinabili per vari parametri e filtrabili tramite ricerca per nome del livello o dell'utente
+                che l'ha creato.<br> Un livello dimostrativo e completo di tutte le potenzialità del gioco è visibile all'inizio della pagina e si mostra come un livello più grande degli altri.<br>
+                Ogni livello può essere votato <b>(icona pollice in alto o in basso)</b> e si può visionare la classifica dei punteggi degli utenti tramite <b>l'icona con il simbolo di un grafico</b>,
+                inoltre il proprio punteggio sarà evienziato in rosso.<br><br>
+
+                Dopo aver selezionato un livello <b>(icona gamepad)</b> il giocatore potrà controllare un personaggio in grado di sparare, saltare, abbassarsi e muoversi orizzontalmente.<br>
+                Potenzilamente un livello può presentare 7 tipi di nemici e vari oggetti tra cui raccoglibili, muri, porte e pavimenti.<br>
+                I tasti per controllare il proprio personaggio sono i seguenti:</p><br><br>
+
+                <ul>
+                    <li><b>w</b> (per saltare)</li>
+                    <li><b>s</b> (per abbassarsi)</li>
+                    <li><b>a</b> (movimento verso sinistra)</li>
+                    <li><b>d</b> (movimento verso destra)</li>
+                    <li><b>space</b> (per sparare)</li>
+                    <li><b>esc</b> (menu di gioco)</li>
+                </ul><br><br>
+
+                <p>A schermo si possono vedere i seguenti indicatori:</p><br><br>
+
+                <ul>
+                    <li><b>metri percorsi</b> (in alto a sinistra)</li>
+                    <li><b>tempo di gioco</b> (in alto a destra)</li>
+                    <li><b>vita</b> (in basso)</li>
+                    <li><b>barra di raffreddamento arma</b> (in basso, si può sparare solo quando è piena)</li>
+                    <li><b>munizioni</b> (in basso)</li>
+                    <li><b>numeri di vite</b> (in basso)</li>
+                    <li><b>slot chiavi</b> (in basso a destra, non visibile se non si dispona di nessuna chiave)</li>
+                </ul><br><br>
+
+
+                <p>L'obbiettivo del gioco è completare il livello con il miglior punteggio possibile.<br>
+                Il punteggio viene calcolato in base al tempo di gioco, metri percorsi, nemici sconfitti, danni subiti, colpi a segno ,colpi a vuoto e vite perse.</p><br><br><br>
+            </p>
+            <h4>Editor</h4>
+            <p>La schermata dell'editor presenta tutti i livelli creati dall'utente anche essi ordinabili e filtrabili per nome,
+                si può giocare un proprio livello <b>(icona play)</b>, modificarlo <b>(icona con l'ingranaggio)</b>, crearne uno nuovo <b>(icona più)</b> o eliminarne uno vecchio <b>(icona cestino)</b>.<br>
+                Dopo aver selezionato un livello in modalità modifica o dopo aver selezionato l'icona più, si apre l'editor.<br><br>
+
+                L'editor vero e proprio permette di creare un livello tramite un'apposita <b>interfaccia di creazione</b>, sono disponibili tutti gli oggetti e nemici del gioco.<br>
+                Inoltre cliccando su uno dei due switch presenti è possibile attivare una <b>modalità 'guida'</b> che spiega il funzionamento di ogni oggetto e impostazione dell'interfaccia di creazione.<br><br>
+
+                Per creare un oggetto basta selezionarlo dal menù a tendina, dopo di che l'oggetto viene creato al centro dello schermo e lo si potrà spostare <b>trascinandolo con il mouse</b>
+                o premendo le <b>frecce direzionali</b>. Le dimensione degli oggetti e le loro proprietà, se modificabili, possono essere cambiate tramite i <b>bottoni a sinistra</b> dello schermo e le frecce direzionali.<br>
+                L'ultima area del menù a tendina permette di modificare la lunghezza dello sfondo e di attivare delle impostazioni che facilitano la creazione (per esempio l'assenza di gravità e collisioni del giocatore).<br><br>
+
+                Una volta teminato il livello si può salvare dal menu <b>(tasto 'esc')</b>, da quì si possono settare le impostazioni di inizio livello (per esempio quanta vita, munizioni, quale arma...)
+                e i dati per riconoscerlo tra gli altri quali il nome e l'immagine.<br>
+                Ogni livello creato sarà aggiunto alla lista dei livelli giocabili da tutti gli utenti.
+            </p>
+
+
+                <button onclick=window.history.go(-1)>Indietro</button>
+        </div>    
+
+    </body>
+</html>

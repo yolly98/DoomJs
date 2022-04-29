@@ -1,0 +1,243 @@
+
+body{
+    background-image:url('./sfondo_Doom.jpg');
+    /*background-size:100vw 50vw;*/
+   background-size:cover;
+
+}
+button,label,input,a{
+    font-family: 'Anton', sans-serif;
+    font-size:1vw;
+    outline:none;
+  }
+
+  
+
+#login{
+
+    display:block;
+    padding: 2vw 0vw 1vw 0vw;
+    margin: 0vw 0vw 0vw 0vw;
+    background-color:maroon;
+    width: 35vw;
+    text-align: center;
+    height: 16vw;
+    position: absolute;
+    top: 16vw;
+    left: 31vw;
+    opacity: 0.9;
+    border-radius: 1vw;
+    box-shadow: 0vw 2vw 4vw rgb(134, 69, 69);
+    color:lightGrey;
+    font-size: 1.7vw;
+    font-family: 'Anton', sans-serif;
+    border: 0.2vw solid black;
+}
+
+#registrazione{
+
+    display:none;
+    padding: 2vw 0vw 1vw 0vw;
+    margin: 0vw 0vw 0vw 0vw;
+    background-color:maroon;
+    width: 35vw;
+    text-align: center;
+    height: 28vw;
+    position: absolute;
+    top: 11vw;
+    left: 31vw;
+    opacity: 0.9;
+    border-radius: 1vw;
+    box-shadow: 0vw 2vw 4vw rgb(134, 69, 69);
+    color:lightGrey;
+    font-size: 1.7vw;
+    font-family: 'Anton', sans-serif;
+    border: 0.2vw solid black;
+}
+
+
+.inputLogin,.inputReg{
+
+    border-radius: 0.5vw;
+    width: 20vw;
+    position: relative;
+    color: grey;
+    box-shadow: none;
+    border: 0.2vw solid black;
+    margin: 0.7vw;
+    height: 1.7vw;
+    font-size: 1.5vw;
+    padding: 0.2vw;
+}
+
+.submitLogin,.buttonLogin,.submitReg{
+
+
+    position:relative;
+    border-radius: 0.3vw;
+    width: 8vw;
+    height: 3vw;
+    margin: 1vw;
+    box-shadow: 0vw 0.2vw 1vw #9E9E9E;
+    border: 0.2vw solid black;
+    background-color:lightGrey;
+    font-size: 1.5vw;
+    color:darkred;
+    outline:none;
+    cursor:pointer;
+}
+
+.submitLogin:hover,.buttonLogin:hover,.submitReg:hover{
+
+    background-color:darkred;
+    color:lightGrey;
+    border-color:lightGrey;
+}
+
+
+#menuPrincipale{
+
+    display: none;
+    padding: 2vw 0vw 1vw 0vw;
+    margin: 0vw 0vw 0vw 0vw;
+    background-color: maroon;
+    width: 35vw;
+    text-align: center;
+    height: 28vw;
+    position: absolute;
+    top: 10vw;
+    left: 31vw;
+    opacity: 0.9;
+    border-radius: 1vw;
+    box-shadow: 0vw 2vw 4vw rgb(134, 69, 69);
+    color: lightGrey;
+    font-size: 1.7vw;
+    font-family: 'Anton', sans-serif;
+    border: 0.2vw solid black;
+}
+
+#menuPrincipale button{
+
+    position: relative;
+    border-radius: 1.3vw;
+    width: 17vw;
+    height: 5vw;
+    margin: 1vw;
+    box-shadow: 0vw 0.2vw 1vw #9E9E9E;
+    border: 0.2vw solid black;
+    background-color: lightGrey;
+    font-size: 2.5vw;
+    color: black;
+    font-family: 'Anton', sans-serif;
+    outline:none;
+    cursor:pointer;
+}
+
+
+#menuPrincipale button:hover{
+
+    background-color:darkred;
+    color:lightGrey;
+    border-color:lightGrey;
+}
+
+#stat{
+
+    width: 52vw;
+    height: 42vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3vw;
+    background-color: lightgrey;
+    z-index: 100;
+    border: 0.2vw solid black;
+    border-radius: 1vw;
+    text-align: center;
+    display: none;
+    overflow-y:auto;
+
+}
+
+#statTable table{
+
+    position: absolute;
+    left: 10%;
+    top: 4vw;
+    z-index: 100;
+    text-align: center;
+    font-size: 1.3vw;
+    font-family: 'Anton', sans-serif;
+
+}
+
+#statTable table,th,td{
+
+  
+    border: 0.2vw solid black;
+    border-collapse: collapse;
+    padding:1vw 0vw 1vw 0vw;
+    
+
+}
+
+#statTable th{
+    padding: 1vw 1vw 1vw 1vw;
+}
+
+#statTable td{
+
+
+    width: 30vw;
+
+}
+
+#statTable caption{
+    
+    font-size:2vw;
+    color:darkred;
+    font-weight:bold;
+    font-family: 'Anton', sans-serif;
+
+}
+
+
+#chiudiStat i:hover {
+    color:darkred;
+    font-size:3.5vw;
+    z-index: 101;
+    
+}
+
+ #chiudiStat{
+
+    position: absolute;
+    color: grey;
+    font-size: 3vw;
+    left: 90%;
+    top: 5%;
+    height: 5vw;
+    cursor:pointer;
+}
+
+
+#stat::-webkit-scrollbar {
+    width: 1vw;
+    background-color: lightgrey;
+    border-radius: 1vw;
+    border: 0.1vw solid black;  
+    background-color:lightgrey;
+  }
+  
+  /* Track */
+#stat::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1vw darkgrey;
+    border-radius: 1vw;
+  }
+  
+  /* Handle */
+#stat::-webkit-scrollbar-thumb {
+    background: darkgray;
+    border-radius: 1vw;
+    border: 0.1vw solid black;
+  }

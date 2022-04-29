@@ -1,0 +1,1085 @@
+body,html{
+
+	background-color:firebrick;
+}
+
+body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input,button{
+	outline:none;
+}
+
+#playground{
+
+	background-color:black;
+	position:absolute;
+	overflow:hidden;
+	background-size:contain;
+	display:block;
+	border: 0.3vw solid black;
+	left: 50%;
+	transform: translateX(-50%);
+	top:1vw;
+}
+
+#playgroundBar{
+
+	background-color:DarkRed;
+	position:absolute;
+	overflow:hidden;
+	background-size:contain;
+	display:block;
+	top: 41.5vw;
+	border: 0.3vw solid black;
+	left: 50%;
+	transform: translateX(-50%);
+	
+}
+
+#caricamento{
+
+	position: absolute;
+	left:50%;
+	top:15vw;
+	transform: translateX(-50%);
+/*	transform: translateY(-50%);*/
+    width: 47vw;
+    height: 4vw;
+    background-color: gray;
+    z-index: 21;
+	border-radius: 0.5vw;
+	
+
+
+}
+
+#sfondoCaricamento{
+
+	background-color: black;
+    position: absolute;
+    z-index: 20;
+    left: 50%;
+    transform: translateX(-50%);
+	top: 1vw;
+	width:95vw;
+	height:40vw;
+	border:0.3vw solid black;
+	
+
+}
+
+#barraCaricamento{
+
+	position: absolute;
+	left:0.3vw;
+	top:0.3vw;
+	width:0vw; /*max 46*/
+    height: 3.5vw;
+    background-color: rgb(109, 16, 16);
+    z-index: 22;
+    border-radius: 0.5vw;
+
+
+}
+
+#metri{
+
+	position:absolute;
+	left:1vw;
+	top:0.5vw;
+	width:10vw;
+	height:4vw;
+	font-size: 1.5vw;
+	font-weight: bold;
+	color:grey;
+	z-index:7;
+	font-family: 'Anton', sans-serif;
+
+
+}
+
+#tempo{
+
+	position:absolute;
+	left:100%;
+	transform: translate(-100%);
+	top:0.5vw;
+	width:10vw;
+	height:4vw;
+	font-size: 1.5vw;
+	font-weight: bold;
+	color:grey;
+	z-index:7;
+	font-family: 'Anton', sans-serif;
+
+
+}
+
+#nViteDiv{
+
+	position:relative;
+	float:left;
+	top:1vw;/*37.5em;/*600px*/
+	width:10vw;/*6.25em;/*100*/
+	height:2vw;/*1.25em;/*20*/
+	font-weight:bold;
+	z-index:6;
+	background-color:green;
+	border: 0.3vw solid black;
+	text-align: center;
+	font-size: 1.5vw;
+	color:black;
+	left:2vw;
+	font-family: 'Anton', sans-serif;
+
+}
+#nViteDiv label{
+	font-size:1.5vw;
+	font-family: 'Anton', sans-serif;
+	text-align: left;
+
+}
+
+
+#life{
+
+	position:relative;
+	float:left;
+	top:1vw;/*37.5em;/*600px*/
+	width:15vw;/*6.25em;/*100*/
+	height:2vw;/*1.25em;/*20*/
+	font-weight:bold;
+	z-index:6;
+	background-color:yellow;
+	border: 0.3vw solid black;
+	text-align: center;
+	font-size: 1.5vw;
+	font-family: 'Anton', sans-serif;
+	
+}
+
+#lifeSpan{
+
+	font-weight:normal;	
+	color:green;
+	font-family: 'Anton', sans-serif;
+}
+
+#coolingGun{
+
+	position:relative;
+	float:left;
+	top:1vw;/*37.5em;/*600px*/
+	/*left:9.7vw;/*6.25em;/*100*/
+	width:9vw;/*6.25em;/*100*/
+	height:2vw;/*1.25em;/*20*/
+	z-index:6;
+	background-size:contain;
+	background-color:grey;
+	border: 0.3vw solid black;
+
+}
+
+#coolingBar{
+
+	top:0.5vw;/*0.3125em; /*5*/
+	left:0.7vw;/*0.625em;*/
+	width:80%; /*80*/
+	height:1vw;/*0.625em;/*10*/
+	z-index:7;
+	background-color:blue;
+	position: inherit;
+	border: 0.1vw solid black;
+	position:absolute;
+
+
+}
+
+
+#ammo{
+
+	position:relative;
+	float:left;
+	top:1vw;/*37.5em;/*600px*/
+	/*left:18.2vw;/*12.5em;/*200*/
+	width:15vw;/*9.375em;/*150*/
+	height:2vw;/*1.25em;/*20*/
+	font-weight:bold;
+	z-index:6;
+	background-color:rgb(81,161,25);
+	border: 0.3vw solid black;
+	text-align: center;
+	font-size: 1.5vw;
+	font-family: 'Anton', sans-serif;
+}
+
+#ammoSpan{
+
+	font-weight:normal;	
+	color:black;
+	font-family: 'Anton', sans-serif;
+}
+
+
+#divBlock{ /*lucchetto blocco movimento*/
+
+	position:absolute;
+	z-index:6;
+	opacity: 0.8;
+	color:lightgrey;
+	text-align: center;
+	font-size:1.5vw;
+
+}
+
+#saveIcon{ 
+
+	position:absolute;
+	z-index:6;
+	opacity: 0.8;
+	color:lightgrey;
+	text-align: center;
+	font-size:2vw;
+	top:93%;
+	left:2%;
+
+}
+
+
+#chiaveG{
+
+
+	position:relative;
+	float:right;
+	top:0.3vw;/*37.5em;/*600px*/
+	/*left:18.2vw;/*12.5em;/*200*/
+	width:3vw;/*9.375em;/*150*/
+	height:3vw;/*1.25em;/*20*/
+	font-weight:bold;
+	z-index:6;
+	background-color:yellow;
+	border: 0.3vw solid black;
+	display:none;
+}
+
+#chiaveB{
+
+
+	position:relative;
+	float:right;
+	top:0.3vw;/*37.5em;/*600px*/
+	/*left:18.2vw;/*12.5em;/*200*/
+	width:3vw;/*9.375em;/*150*/
+	height:3vw;/*1.25em;/*20*/
+	font-weight:bold;
+	z-index:6;
+	background-color:blue;
+	border: 0.3vw solid black;
+	display:none;
+}
+
+#chiaveR{
+
+
+	position:relative;
+	float:right;
+	top:0.3vw;/*37.5em;/*600px*/
+	/*left:18.2vw;/*12.5em;/*200*/
+	width:3vw;/*9.375em;/*150*/
+	height:3vw;/*1.25em;/*20*/
+	font-weight:bold;
+	z-index:6;
+	background-color:red;
+	border: 0.3vw solid black;
+	display:none;
+}
+
+
+
+
+.player0{
+
+	background-image:url('./player/player-dx1-gun0.png');
+	z-index:3;
+	position:absolute;
+	background-size:contain;
+
+}
+
+/***********************FLOOR****************************/
+
+.floor0{
+
+	background-image:url('./floor/floor1.png');
+	background-repeat:repeat;
+	z-index:5;
+	/*background-color:white;*/
+	position:absolute;
+	background-size:3vw 3vw;
+	border-radius: 0.2vw;
+
+}
+
+.floorsfondo{
+
+	background-image:url('./sfondi/sfondo_doom.png');
+	position:absolute;
+	z-index:1;
+	background-size:contain;
+	
+}
+
+.floorFSX_0{
+
+	background-image:url('./floor/floor1.png');
+	background-repeat:repeat;
+	z-index:4;
+	/*background-color:white;*/
+	position:absolute;
+	border-radius: 0.2vw;
+	background-size:3vw 3vw;
+
+}
+
+
+.floorFSY_0{
+
+	background-image:url('./floor/floor1.png');
+	background-repeat:repeat;
+	z-index:4;
+	/*background-color:white;*/
+	position:absolute;
+	border-radius: 0.2vw;
+	background-size:3vw 3vw;
+
+}
+
+.floorFAscensore_0{
+
+	background-image:url('./floor/ascensore.png');
+	background-repeat:repeat;
+	z-index:4;
+	/*background-color:white;*/
+	position:absolute;
+	border-radius: 0.2vw;
+	background-size:3vw 3vw;
+
+}
+
+.floorFPorta{
+
+	background-image:url('./floor/porta.png');
+	/*background-repeat:repeat;*/
+	z-index:4;
+	/*background-color:grey;*/
+	position:absolute;
+	background-size: cover;
+	border-radius: 0.2vw;
+    /*box-shadow: 0vw 0vw 0.5vw lightgrey;*/
+
+
+}
+
+.floorFPortaG_0{
+
+	background-image:url('./floor/portaG.png');
+	/*background-repeat:repeat;*/
+	z-index:4;
+	/*background-color:yellow;*/
+	position:absolute;
+	background-size: cover;
+	border-radius: 0.2vw;
+    /*box-shadow: 0vw 0vw 0.5vw goldenrod;*/
+
+}
+
+
+
+.floorFPortaB_0{
+
+	background-image:url('./floor/portaB.png');
+	/*background-repeat:repeat;*/
+	z-index:4;
+	/*background-color:blue;*/
+	position:absolute;
+	background-size: cover;
+	border-radius: 0.2vw;
+    /*box-shadow: 0vw 0vw 0.5vw dodgerblue;*/
+
+
+}
+
+
+
+
+.floorFPortaR_0{
+
+	background-image:url('./floor/portaR.png');
+	/*background-repeat:repeat;*/
+	z-index:4;
+	background-color:red;
+	position:absolute;
+	background-size: cover;
+	border-radius: 0.2vw;
+   /* box-shadow: 0vw 0vw 0.5vw tomato;*/
+
+
+}
+
+
+
+.floorFM{
+
+	background-image:url('./floor/fm.png');
+	/*background-repet:repeat;*/
+	z-index:4;
+	/*background-color:green;*/
+	position:absolute;
+	background-size:3vw 3vw;
+	background-size: contain;
+  /*  box-shadow: 0vw 0vw 25vw orange;*/
+    border-radius: 0.2vw;
+
+}
+
+.floorFB{
+
+	background-image:url('./floor/fm.png');
+	/*background-repeat:repeat;*/
+	z-index:6;
+	/*background-color:red;*/
+	position:absolute;
+	background-size:cover;
+	border-radius:50%;
+	box-shadow:0vw 0vw 10vw orange;
+
+}
+
+
+.floorEGY{
+
+	/*background-image:url('./floor/patternMattone.png');
+	background-repeat:repeat;*/
+	z-index:2;
+	background-color:orange;
+	position:absolute;
+
+}
+
+
+.floorPORT{
+
+	/*background-image:url('./floor/patternMattone.png');
+	background-repeat:repeat;*/
+	z-index:4;
+	background-color:lightpink;
+	position:absolute;
+	border-radius: 0.5vw;
+    box-shadow: 0vw 0vw 6vw 2vw violet;
+
+}
+
+/************************BULLET*******************************/
+.bullet0{
+
+	/*background-color:green;*/
+	position:absolute;
+	z-index:4;
+	background-size:contain;
+	
+
+}
+
+.bullet1{
+
+	/*background-color:green;*/
+	position:absolute;
+	z-index:4;
+	background-size:contain;
+	
+
+}
+
+.bullet2{
+
+	/*background-color:green;*/
+	position:absolute;
+	z-index:4;
+	background-size:contain;
+}
+
+
+.bullet3{
+
+	/*background-color:green;*/
+	position:absolute;
+	z-index:4;
+	background-size:contain;
+}
+/**da disegnare**/
+.bullet4{
+
+	/*background-color:red;*/
+	position:absolute;
+	z-index:4;
+	background-size:contain;
+}
+
+.bullet5{
+
+	/*background-color:green;*/
+	position:absolute;
+	z-index:4;
+	background-size:contain;
+}
+
+.bullet6{
+
+	/*background-color:red;*/
+	position:absolute;
+	z-index:4;
+	background-size:contain;
+}
+
+.bullet7{
+
+	/*background-color:yellow;*/
+	position:absolute;
+	z-index:4;
+	background-size:contain;
+}
+/**********************ENEMY***************************/
+.enemy_0{
+
+	/*background-color:blue;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+}
+
+.enemy_1{
+
+	/*background-color:blue;*/
+	position:absolute;	
+	z-index:3;
+	background-size:contain;
+}
+
+
+.enemy_2{
+
+	/*background-color:blue;*/
+	position:absolute;	
+	z-index:3;
+	background-size:contain;
+}
+
+
+.enemy_3{
+
+	/*background-color:blue;*/
+	position:absolute;	
+	z-index:3;
+	background-size:contain;
+}
+
+
+.enemy_4{
+
+	/*background-color:blue;*/
+	position:absolute;	
+	z-index:3;
+	background-size:contain;
+}
+
+.enemy_5{
+
+	/*background-color:grey;*/
+	position:absolute;	
+	z-index:3;
+	background-size:contain;
+}
+
+.enemy_boss1{
+
+	/*background-color:grey;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+}
+
+.enemy_6{
+
+	/*background-color:green;*/
+	background-image:url('./enemy/bomba.png');
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+	border-radius: 0.2vw;
+}
+
+.enemy_7{
+
+	/*background-color:brown;*/
+	background-image:url('./enemy/cassa.png');
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+	border-radius: 0.2vw;
+}
+
+/************************BOX*************************************/
+
+.box_0{
+
+	background-image:url('./powerUp/kitMedicoSmall.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+.box_1{
+
+	background-image:url('./powerUp/kitMedicoMedium.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+.box_2{
+
+	background-image:url('./powerUp/kitMedicoLarge.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+.box_3{
+
+	background-image:url('./powerUp/armatura.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+.box_4{
+
+	background-image:url('./box/pompa.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+.box_5{
+
+	background-image:url('./box/cecchino.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+.box_6{
+
+	background-image:url('./box/mitraglia.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+.box_7{  
+
+	background-image:url('./box/MS.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+.box_8{
+
+	background-image:url('./box/MM.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+.box_9{
+
+	background-image:url('./box/ML.png');
+	/*background-color:green;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+/***CHIAVI***/
+
+
+.box_10{
+
+	background-image:url('./box/chiaveG.png');
+	/*background-color:yellow;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+
+
+.box_12{
+
+	background-image:url('./box/chiaveB.png');
+	/*background-color:blue;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+
+
+.box_14{
+
+	background-image:url('./box/chiaveR.png');
+	/*background-color:red;*/
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+
+
+
+/*****TRIGGER**/
+
+.box_16{
+
+	/*background-image:url('./powerUp/arma1.png');*/
+	background-color:darkgrey;
+	opacity:0.6;
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+.box_17{
+
+	/*background-image:url('./powerUp/arma1.png');*/
+	background-color:darkred;
+	opacity:0.6;
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+
+.box_18{
+
+	/*background-image:url('./powerUp/arma1.png');*/
+	background-color:darkgreen;
+	opacity:0.6;
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+.box_19{
+
+	/*background-image:url('./powerUp/arma1.png');*/
+	background-color:lightgreen;
+	opacity:0.6;
+	position:absolute;
+	z-index:3;
+	background-size:contain;
+
+}
+
+
+
+/**********************************************/
+
+.deathDiv_0{
+
+	/*background-color:red;*/
+	background-image:url('./enemy/deathDiv.png');
+	position:absolute;
+	z-index:4;
+	background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+
+.deathDiv_7{
+
+	/*background-color:red;*/
+	background-image:url('./enemy/cassa_deathDiv.png');
+	position:absolute;
+	z-index:4;
+	background-size:contain;
+
+}
+
+.bulletCollisionDiv{
+
+	/*background-color:green;*/
+	position:absolute;
+	z-index:5;
+	background-size:contain;
+
+}
+
+/**************************************/
+
+#menu{
+
+	background-color:orange;
+	position:absolute;
+	z-index:8;
+	opacity:0.8;
+	border: 1.2px solid red;
+  	border-radius: 1.5vw;
+  	box-shadow: 0.5vw 0.7vw 0.5vw 0vw rgba(0,0,0,0.44);
+  	top: 5vw;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 1vw 4vw 1vw 4vw;
+
+}
+
+#sfondoMenu{
+
+	background-color: black;
+    position: absolute;
+    z-index: 6;
+    opacity: 0.8;
+    left: 50%;
+    transform: translateX(-50%);
+	top: 1vw;
+	
+
+}
+
+.buttonMenu{
+
+	background-color: grey;
+    position: relative;
+    z-index: 8;
+    /* opacity: 0.8; */
+    border: 0.2vw solid black;
+    border-radius: 1.5vw;
+    box-shadow: 0.5vw 0.7vw 0.5vw 0vw rgba(0,0,0,0.44);
+    padding: 1vw 0.8vw 1vw 0.8vw;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5vw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 13vw;
+    outline: none;
+    cursor: pointer;
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+    display: block;
+
+
+}
+		
+
+.buttonMenu:hover {
+
+	background-color:rgb(58, 58, 58);
+	color:white;
+
+}
+
+#scoreDiv{
+
+	position: relative;
+    background-color: lightgray;
+    width: 17vw;
+    height: 2vw;
+    font-size: 1.4vw;
+    font-family: 'Anton', sans-serif;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.5vw;
+    padding: 0.5vw;
+    text-align: center;
+    border: 0.2vw solid black;
+    display: block;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+
+}
+
+#winAlert{
+
+	position: relative;
+    width: 17vw;
+    height: 2vw;
+    font-size: 1.7vw;
+    font-family: 'Anton', sans-serif;
+    left: 50%;
+    transform: translateX(-50%);
+	text-align: center;
+	color:darkred;
+
+}
+
+#newRecord{
+
+	position: relative;
+    width: 17vw;
+    height: 1vw;
+    font-size: 1vw;
+    font-family: 'Anton', sans-serif;
+    left: 50%;
+    transform: translateX(-50%);
+	text-align: center;
+	color:darkred;
+
+}
+
+#fullScreen{
+	border:0.2vw solid black;
+	background-color: maroon;
+	width:2vw;
+	height:2vw;
+	border-radius:2vw;
+	position: absolute;
+	bottom:1vw;
+	right:1vw;
+}
+
+#fullScreen:active{
+
+	background-color: grey;
+
+}
+
+/*********TOUCH*****************/
+
+#moveStick{
+	opacity:0.2;
+	width:12vw;
+	height:12vw;
+	border-radius:12vw;
+	background-color:grey;
+	position:absolute;
+	top:50%;
+	transform: translateY(-50%);
+	left:2vw;
+	z-index:7;
+}
+
+#stick{
+	opacity: 0.5;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 3vw;
+    background-color: red;
+    position: absolute;
+    top: 4.5vw;
+    left: 4.5vw;
+    z-index: 8;
+	
+}
+
+#touchFire{
+
+	opacity: 0.5;
+    width: 8vw;
+    height: 8vw;
+    border-radius: 5vw;
+    background-color: red;
+    position: absolute;
+    bottom:2vw;
+    right: 3vw;
+    z-index: 8;
+}
+
+#touchJump{
+
+	opacity: 0.5;
+    width: 8vw;
+    height: 8vw;
+    border-radius: 5vw;
+    background-color: grey;
+    position: absolute;
+    bottom:8vw;
+    right: 2vw;
+    z-index: 8;
+}
+
+#touchPausa{
+	width:5vw;
+	height:3vw;
+	opacity:0.5;
+	background-color:grey;
+	position:absolute;
+	bottom:1vw;
+	right:1vw;
+	border:0.2vw solid maroon;
+	z-index:7;
+	border-radius: 1vw;
+
+
+}
+
+#sizeControll{
+	opacity: 0.5;
+    position: absolute;
+    border-collapse: separate;
+    border: none;
+    right: 3vw;
+    bottom: 7vw;
+    z-index: 7;
+	border-spacing: 1vw;
+	display:none;
+}
+
+#sizeControll tr{
+	border:none;
+}
+
+#sizeControll td{
+    width: 4vw;
+    height: 4vw;
+    background-color: transparent;
+	border: 0.1vw solid transparent;
+}
+
+#sizeControll .size{
+	background-color:grey;
+}
+
+#sizeControll .size:active{
+	background-color:maroon;
+}
