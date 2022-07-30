@@ -1,5 +1,5 @@
 # DoomJs
-It's a web 2D game inspirated to the famous game Bethesda Doom, there is an editor to make and share maps. 
+It's a web 2D game inspirated to the famous Bethesda game Doom, there is an editor to make and share maps. 
 There are statistichs and rating, the database is sql because was a requirement, would be more adapted a Document DB like MongoDB.
 All the game is build in pure code, no framework or graphic engine.
 
@@ -34,4 +34,7 @@ All the game is build in pure code, no framework or graphic engine.
 * html
 * css
 * sql and mysql
+
+## try the game
+http://doomjs.altervista.org/giochi/Doom/doomJS.php
 
