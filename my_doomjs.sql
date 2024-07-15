@@ -1,24 +1,29 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.7
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 29, 2022 alle 12:32
--- Versione del server: 5.6.33-log
--- PHP Version: 5.6.40
+-- Creato il: Lug 15, 2024 alle 09:16
+-- Versione del server: 8.0.26
+-- Versione PHP: 8.0.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `my_doomjs`
 --
+CREATE DATABASE IF NOT EXISTS my_doomjs;
+USE my_doomjs;
+CREATE USER 'doomjs'@'localhost';
+GRANT ALL PRIVILEGES ON my_doomjs.* TO 'doomjs'@'localhost';
 
 -- --------------------------------------------------------
 
@@ -26,22 +31,21 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `livello`
 --
 
-CREATE TABLE IF NOT EXISTS `livello` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `livello` (
+  `id` int NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `posX` int(11) NOT NULL,
-  `vita` int(11) NOT NULL,
-  `munizioni` int(11) NOT NULL,
-  `posY` int(11) NOT NULL,
+  `posX` int NOT NULL,
+  `vita` int NOT NULL,
+  `munizioni` int NOT NULL,
+  `posY` int NOT NULL,
   `arma` varchar(100) NOT NULL,
-  `miPiace` int(11) NOT NULL,
-  `nonMipiace` int(11) NOT NULL,
-  `nVite` int(11) NOT NULL,
+  `miPiace` int NOT NULL,
+  `nonMipiace` int NOT NULL,
+  `nVite` int NOT NULL,
   `dataCreazione` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dataUltimaMod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `sfondo` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
+  `sfondo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `livello`
@@ -95,7 +99,9 @@ INSERT INTO `livello` (`id`, `nome`, `posX`, `vita`, `munizioni`, `posY`, `arma`
 (69, 'Daniel', 100, 100, 50, 480, 'Pistola', 0, 0, 3, '2019-07-26 22:04:19', '2019-07-26 22:04:29', 'livello_standard.jpg'),
 (70, 'Coroline', 100, 100, 50, 480, 'Pistola', 1, 0, 3, '2019-07-26 22:24:50', '2019-07-29 06:14:49', 'livello_standard.jpg'),
 (72, 'lellozzo', 100, 100, 50, 600, 'Pistola', 0, 0, 3, '2019-08-06 21:09:12', '2019-08-06 21:09:12', 'livello_standard.jpg'),
-(73, 'erfdsf', 100, 100, 50, 600, 'Pistola', 0, 0, 3, '2019-09-09 20:33:02', '2019-09-09 20:33:02', 'sfondo4.jpg');
+(73, 'erfdsf', 100, 100, 50, 600, 'Pistola', 0, 0, 3, '2019-09-09 20:33:02', '2019-09-09 20:33:02', 'sfondo4.jpg'),
+(74, 'esempio1', 100, 100, 50, 600, 'Pistola', 0, 0, 3, '2022-07-30 10:30:39', '2022-07-30 10:33:06', 'livello_standard.jpg'),
+(75, 'macci1', 100, 100, 50, 600, 'Pistola', 0, 0, 3, '2022-08-07 17:51:27', '2022-08-07 17:51:27', 'livello_standard.jpg');
 
 -- --------------------------------------------------------
 
@@ -103,13 +109,12 @@ INSERT INTO `livello` (`id`, `nome`, `posX`, `vita`, `munizioni`, `posY`, `arma`
 -- Struttura della tabella `oggetto_box`
 --
 
-CREATE TABLE IF NOT EXISTS `oggetto_box` (
-  `id` int(11) NOT NULL,
-  `indiceBox` int(11) NOT NULL,
+CREATE TABLE `oggetto_box` (
+  `id` int NOT NULL,
+  `indiceBox` int NOT NULL,
   `type` varchar(50) NOT NULL,
-  `posX` int(11) NOT NULL,
-  `posY` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`indiceBox`)
+  `posX` int NOT NULL,
+  `posY` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -198,7 +203,6 @@ INSERT INTO `oggetto_box` (`id`, `indiceBox`, `type`, `posX`, `posY`) VALUES
 (52, 2, '16', 985, 0),
 (52, 3, '17', 1155, 160),
 (52, 4, '18', 1250, 200),
-(53, 0, '17', 295, -50),
 (54, 0, '16', 105, -20),
 (55, 0, '16', 110, 0),
 (61, 0, '19', 715, 0),
@@ -227,20 +231,19 @@ INSERT INTO `oggetto_box` (`id`, `indiceBox`, `type`, `posX`, `posY`) VALUES
 -- Struttura della tabella `oggetto_enemy`
 --
 
-CREATE TABLE IF NOT EXISTS `oggetto_enemy` (
-  `id` int(11) NOT NULL,
-  `indiceEnemy` int(11) NOT NULL,
+CREATE TABLE `oggetto_enemy` (
+  `id` int NOT NULL,
+  `indiceEnemy` int NOT NULL,
   `type` varchar(50) NOT NULL,
-  `posX` int(11) NOT NULL,
-  `posY` int(11) NOT NULL,
+  `posX` int NOT NULL,
+  `posY` int NOT NULL,
   `dir` varchar(50) NOT NULL,
-  `x` int(11) NOT NULL,
-  `y` int(11) NOT NULL,
-  `maxX` int(11) NOT NULL,
-  `maxY` int(11) NOT NULL,
-  `counterX` int(11) NOT NULL,
-  `stepCounter` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`indiceEnemy`)
+  `x` int NOT NULL,
+  `y` int NOT NULL,
+  `maxX` int NOT NULL,
+  `maxY` int NOT NULL,
+  `counterX` int NOT NULL,
+  `stepCounter` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -464,7 +467,67 @@ INSERT INTO `oggetto_enemy` (`id`, `indiceEnemy`, `type`, `posX`, `posY`, `dir`,
 (73, 2, '5', 2485, 540, 'a', 1840, 540, 0, 0, 0, 0),
 (73, 3, '4', 2485, 530, 'd', 1985, 530, 0, 0, 0, 0),
 (73, 4, '3', 2125, 480, 'a', 2455, 480, 400, 0, 0, 2),
-(73, 5, '4', 2485, 530, 'a', 4210, 530, 0, 0, 0, 0);
+(73, 5, '4', 2485, 530, 'a', 4210, 530, 0, 0, 0, 0),
+(75, 0, '0', 1495, 520, 'a', -55, 520, 300, 0, 240, 0),
+(75, 1, '0', 1495, 520, 'a', 470, 520, 300, 0, 35, 0),
+(75, 4, '2', 1495, 530, 'a', 1340, 530, 0, 0, 0, 0),
+(75, 5, '3', 1495, 480, 'd', 1440, 480, 400, 0, 380, 4),
+(75, 6, '5', 1495, 540, 'a', 1590, 540, 0, 0, 0, 0),
+(75, 7, 'boss1', 1495, 480, 'a', 1805, 480, 0, 0, 0, 1),
+(75, 11, 'boss1', 1495, 480, 'a', 2955, 480, 0, 0, 0, 1),
+(75, 12, 'boss1', 1495, 480, 'a', 3060, 480, 0, 0, 0, 0),
+(75, 13, 'boss1', 1495, 480, 'd', 3105, 480, 0, 0, 0, 0),
+(75, 14, 'boss1', 1495, 480, 'd', 3150, 480, 0, 0, 0, 0),
+(75, 15, 'boss1', 1495, 480, 'd', 3200, 480, 0, 0, 0, 0),
+(75, 16, 'boss1', 1495, 480, 'd', 3250, 480, 0, 0, 0, 0),
+(75, 17, 'boss1', 1495, 480, 'd', 3300, 480, 0, 0, 0, 0),
+(75, 18, 'boss1', 1495, 480, 'd', 3350, 480, 0, 0, 0, 0),
+(75, 19, 'boss1', 1495, 480, 'd', 3395, 480, 0, 0, 0, 0),
+(75, 20, 'boss1', 1495, 360, 'a', 3455, 360, 0, 0, 0, 1),
+(75, 21, 'boss1', 1495, 480, 'a', 3500, 480, 0, 0, 0, 1),
+(75, 22, 'boss1', 1495, 360, 'a', 3560, 360, 0, 0, 0, 0),
+(75, 23, 'boss1', 1495, 480, 'a', 3600, 480, 0, 0, 0, 1),
+(75, 24, 'boss1', 1495, 480, 'd', 3650, 480, 0, 0, 0, 0),
+(75, 25, 'boss1', 1495, 360, 'a', 3715, 360, 0, 0, 0, 0),
+(75, 26, 'boss1', 1495, 480, 'a', 3765, 480, 0, 0, 0, 1),
+(75, 27, 'boss1', 1495, 480, 'd', 3815, 480, 0, 0, 0, 0),
+(75, 28, 'boss1', 1495, 360, 'a', 3875, 360, 0, 0, 0, 0),
+(75, 29, 'boss1', 1495, 480, 'a', 3930, 480, 0, 0, 0, 0),
+(75, 30, 'boss1', 1495, 360, 'a', 3995, 360, 0, 0, 0, 1),
+(75, 31, 'boss1', 1495, 480, 'a', 4060, 480, 0, 0, 0, 0),
+(75, 32, 'boss1', 1495, 480, 'd', 4110, 480, 0, 0, 0, 1),
+(75, 33, 'boss1', 1495, 360, 'a', 4165, 360, 0, 0, 0, 0),
+(75, 34, 'boss1', 1495, 480, 'a', 4225, 480, 0, 0, 0, 1),
+(75, 35, 'boss1', 1495, 360, 'a', 4280, 360, 0, 0, 0, 0),
+(75, 36, 'boss1', 1495, 480, 'a', 4340, 480, 0, 0, 0, 0),
+(75, 37, 'boss1', 1495, 480, 'd', 4390, 480, 0, 0, 0, 1),
+(75, 38, 'boss1', 1495, 360, 'a', 4455, 360, 0, 0, 0, 0),
+(75, 39, 'boss1', 1495, 480, 'a', 4495, 480, 0, 0, 0, 1),
+(75, 40, 'boss1', 1495, 360, 'a', 4565, 360, 0, 0, 0, 0),
+(75, 41, 'boss1', 1495, 480, 'a', 4615, 480, 0, 0, 0, 1),
+(75, 42, 'boss1', 1495, 360, 'a', 4670, 360, 0, 0, 0, 0),
+(75, 43, 'boss1', 1495, 480, 'a', 4710, 480, 0, 0, 0, 0),
+(75, 44, 'boss1', 1495, 480, 'd', 715, 480, 0, 0, 0, 1),
+(75, 45, 'boss1', 1495, 480, 'd', 715, 480, 0, 0, 0, 1),
+(75, 46, 'boss1', 1495, 360, 'd', 715, 360, 0, 0, 0, 0),
+(75, 47, 'boss1', 1495, 360, 'd', 715, 360, 0, 0, 0, 1),
+(75, 48, 'boss1', 1495, 360, 'd', 715, 360, 0, 0, 0, 0),
+(75, 49, 'boss1', 1495, 360, 'd', 715, 360, 0, 0, 0, 1),
+(75, 50, 'boss1', 1495, 360, 'd', 715, 360, 0, 0, 0, 0),
+(75, 51, 'boss1', 1495, 360, 'd', 715, 360, 0, 0, 0, 1),
+(75, 52, 'boss1', 1495, 360, 'd', 715, 360, 0, 0, 0, 1),
+(75, 53, 'boss1', 1495, 360, 'd', 715, 360, 0, 0, 0, 1),
+(75, 54, 'boss1', 1495, 360, 'd', 715, 360, 0, 0, 0, 1),
+(75, 55, 'boss1', 1495, 480, 'a', 900, 480, 0, 0, 0, 0),
+(75, 56, 'boss1', 1495, 480, 'a', 945, 480, 0, 0, 0, 0),
+(75, 57, 'boss1', 1495, 480, 'a', 995, 480, 0, 0, 0, 0),
+(75, 58, 'boss1', 1495, 480, 'd', 1035, 480, 0, 0, 0, 1),
+(75, 59, 'boss1', 1495, 360, 'd', 1115, 360, 0, 0, 0, 0),
+(75, 60, 'boss1', 1495, 480, 'd', 1155, 480, 0, 0, 0, 1),
+(75, 61, 'boss1', 1495, 360, 'd', 1235, 360, 0, 0, 0, 1),
+(75, 62, 'boss1', 1495, 410, 'a', 1325, 410, 0, 0, 0, 0),
+(75, 63, 'boss1', 1495, 360, 'a', 1380, 360, 0, 0, 0, 0),
+(75, 64, 'boss1', 1495, 360, 'd', 1425, 360, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -472,24 +535,23 @@ INSERT INTO `oggetto_enemy` (`id`, `indiceEnemy`, `type`, `posX`, `posY`, `dir`,
 -- Struttura della tabella `oggetto_floor`
 --
 
-CREATE TABLE IF NOT EXISTS `oggetto_floor` (
-  `id` int(11) NOT NULL,
-  `indiceFloor` int(11) NOT NULL,
+CREATE TABLE `oggetto_floor` (
+  `id` int NOT NULL,
+  `indiceFloor` int NOT NULL,
   `type` varchar(50) NOT NULL,
-  `posX` int(11) NOT NULL,
-  `posY` int(11) NOT NULL,
-  `width` int(11) NOT NULL,
-  `height` int(11) NOT NULL,
+  `posX` int NOT NULL,
+  `posY` int NOT NULL,
+  `width` int NOT NULL,
+  `height` int NOT NULL,
   `dir` varchar(50) NOT NULL,
-  `x` int(11) NOT NULL,
-  `y` int(11) NOT NULL,
-  `maxX` int(11) NOT NULL,
-  `maxY` int(11) NOT NULL,
-  `counterX` int(11) NOT NULL,
-  `counterY` int(11) NOT NULL,
-  `counterVx` int(11) NOT NULL,
-  `counterVy` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`indiceFloor`)
+  `x` int NOT NULL,
+  `y` int NOT NULL,
+  `maxX` int NOT NULL,
+  `maxY` int NOT NULL,
+  `counterX` int NOT NULL,
+  `counterY` int NOT NULL,
+  `counterVx` int NOT NULL,
+  `counterVy` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -811,9 +873,6 @@ INSERT INTO `oggetto_floor` (`id`, `indiceFloor`, `type`, `posX`, `posY`, `width
 (52, 3, 'FSX_0', 985, 300, 40, 40, 'a', 420, 300, 300, 0, 295, 0, 1, 0),
 (52, 4, 'FSX_0', 985, 300, 40, 40, 'a', 595, 300, 300, 0, 120, 0, 1, 0),
 (52, 5, 'FSY_0', 985, 300, 40, 40, 'a', 715, 30, 0, 300, 0, 270, 0, 2),
-(53, 0, 'sfondo', 0, 0, 5000, 600, 'null', 0, 0, 0, 0, 0, 0, 0, 0),
-(53, 1, '0', 0, 390, 315, 210, 'null', 0, 390, 0, 0, 0, 0, 0, 0),
-(53, 2, '0', 315, 400, 290, 200, 'null', 315, 400, 0, 0, 0, 0, 0, 0),
 (54, 0, 'sfondo', 0, 0, 5000, 600, 'null', 0, 0, 0, 0, 0, 0, 0, 0),
 (54, 3, 'PORT', 1165, 570, 15, 170, 'null', 325, 360, 400, 0, 0, 0, 0, 0),
 (54, 4, '0', 205, 520, 40, 80, 'null', 205, 520, 0, 0, 0, 0, 0, 0),
@@ -912,7 +971,20 @@ INSERT INTO `oggetto_floor` (`id`, `indiceFloor`, `type`, `posX`, `posY`, `width
 (73, 3, 'FSX_0', 2095, 300, 40, 40, 'a', 2260, 300, 300, 0, 10, 0, 1, 0),
 (73, 4, 'FPorta', 2095, 300, 40, 0, 'a', 2465, 300, 0, 0, 0, 0, 0, 1),
 (73, 5, 'FSY_0', 2095, 300, 40, 40, 'd', 2530, 50, 0, 300, 0, 50, 0, 1),
-(73, 6, 'FSX_0', 2095, 300, 120, 130, 'd', 2370, 300, 300, 0, 55, 0, 1, 0);
+(73, 6, 'FSX_0', 2095, 300, 120, 130, 'd', 2370, 300, 300, 0, 55, 0, 1, 0),
+(74, 0, 'sfondo', 2100, 0, 5000, 600, 'null', 0, 0, 0, 0, 0, 0, 0, 0),
+(74, 1, '0', 2500, 490, 340, 110, 'null', 400, 490, 0, 0, 0, 0, 0, 0),
+(74, 2, 'FSX_0', 3025, 490, 110, 40, 'd', 980, 490, 400, 0, 235, 0, 1, 0),
+(74, 3, 'FM', 2840, 560, 920, 40, 'null', 740, 560, 0, 0, 0, 0, 0, 0),
+(74, 4, 'PORT', 3000, 350, 10, 180, 'null', 1345, 350, 350, -400, 0, 0, 0, 0),
+(74, 5, '0', 3315, 190, 175, 430, 'null', 1660, 190, 0, 0, 0, 0, 0, 0),
+(74, 6, '0', 2750, 210, 45, 80, 'null', 1835, 210, 0, 0, 0, 0, 0, 0),
+(74, 7, '0', 2795, 230, 40, 60, 'null', 1880, 230, 0, 0, 0, 0, 0, 0),
+(74, 8, 'FM', 2835, 250, 535, 40, 'null', 1920, 250, 0, 0, 0, 0, 0, 0),
+(74, 9, '0', 2355, 290, 620, 10, 'null', 1835, 290, 0, 0, 0, 0, 0, 0),
+(74, 12, 'FPorta', 2440, 230, 535, 20, 'd', 1920, 230, 0, 0, 0, 0, 0, 2),
+(74, 13, '0', 2740, 210, 40, 20, 'null', 2220, 210, 0, 0, 0, 0, 0, 0),
+(75, 0, 'sfondo', 780, 0, 5000, 600, 'null', 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -920,11 +992,9 @@ INSERT INTO `oggetto_floor` (`id`, `indiceFloor`, `type`, `posX`, `posY`, `width
 -- Struttura della tabella `proprietario_livello`
 --
 
-CREATE TABLE IF NOT EXISTS `proprietario_livello` (
+CREATE TABLE `proprietario_livello` (
   `user` varchar(100) NOT NULL,
-  `id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_ProprietarioLivello` (`user`)
+  `id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -934,18 +1004,19 @@ CREATE TABLE IF NOT EXISTS `proprietario_livello` (
 INSERT INTO `proprietario_livello` (`user`, `id`) VALUES
 ('alessiotor', 60),
 ('amministratore', 0),
-('berlusca', 7),
-('berlusca', 8),
-('berlusca', 12),
-('berlusca', 14),
+('brami', 7),
+('brami', 8),
+('brami', 12),
+('brami', 14),
 ('Cane', 61),
 ('Coroline', 70),
-('Danielciula', 69),
+('DanielSan', 69),
 ('eleCica007', 46),
 ('erSorcio', 5),
 ('erSorcio', 6),
 ('erSorcio', 42),
 ('Giuseppe', 52),
+('macci', 75),
 ('yolly98', 4),
 ('yolly98', 9),
 ('yolly98', 10),
@@ -978,7 +1049,8 @@ INSERT INTO `proprietario_livello` (`user`, `id`) VALUES
 ('yolly98', 62),
 ('yolly98', 66),
 ('yolly98', 72),
-('yolly98', 73);
+('yolly98', 73),
+('yolly98', 74);
 
 -- --------------------------------------------------------
 
@@ -986,22 +1058,20 @@ INSERT INTO `proprietario_livello` (`user`, `id`) VALUES
 -- Struttura della tabella `punteggio_livello`
 --
 
-CREATE TABLE IF NOT EXISTS `punteggio_livello` (
+CREATE TABLE `punteggio_livello` (
   `user` varchar(100) NOT NULL,
-  `id` int(11) NOT NULL,
-  `metri` int(11) DEFAULT '0',
-  `vitePerse` int(11) DEFAULT '0',
-  `tempo` int(11) DEFAULT '0',
-  `nemiciUccisi` int(11) DEFAULT '0',
-  `danniSubiti` int(11) DEFAULT '0',
-  `colpiEsplosi` int(11) DEFAULT '0',
-  `colpiSegno` int(11) DEFAULT '0',
+  `id` int NOT NULL,
+  `metri` int DEFAULT '0',
+  `vitePerse` int DEFAULT '0',
+  `tempo` int DEFAULT '0',
+  `nemiciUccisi` int DEFAULT '0',
+  `danniSubiti` int DEFAULT '0',
+  `colpiEsplosi` int DEFAULT '0',
+  `colpiSegno` int DEFAULT '0',
   `precisione` varchar(100) DEFAULT NULL,
-  `punteggioTotale` int(11) DEFAULT '0',
+  `punteggioTotale` int DEFAULT '0',
   `voto` varchar(100) DEFAULT NULL,
-  `ultimaPartita` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`,`user`),
-  KEY `FK_punteggioLivello` (`user`)
+  `ultimaPartita` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1021,65 +1091,68 @@ INSERT INTO `punteggio_livello` (`user`, `id`, `metri`, `vitePerse`, `tempo`, `n
 ('CiccioPino', 0, 1805, 1, 337, 48, 688, 169, 0, '0%', 4297, NULL, '2019-06-06 12:47:33'),
 ('Coroline', 0, 2078, 1, 116, 48, 400, 171, 132, '77%', 4624, NULL, '2019-07-26 22:11:04'),
 ('dan', 0, 837, 1, 71, 11, 170, 65, 45, '69%', 1024, NULL, '2019-08-08 15:36:16'),
-('Danielciula', 0, 853, 1, 76, 11, 100, 62, 44, '70%', 1096, NULL, '2019-07-26 21:38:59'),
+('DanielSan', 0, 853, 1, 76, 11, 100, 62, 44, '70%', 1096, NULL, '2019-07-26 21:38:59'),
 ('Dave', 0, 380, 1, 49, 5, 150, 22, 20, '90%', 395, NULL, '2019-07-21 23:03:49'),
 ('eleCica007', 0, 1615, 3, 162, 46, 298, 190, 158, '83%', 4466, NULL, '2019-05-23 18:15:40'),
 ('eleonora00', 0, 852, 1, 132, 11, 150, 56, 44, '78%', 1041, NULL, '2019-06-13 19:25:20'),
 ('emiliano', 0, 1786, 2, 280, 37, 580, 153, 0, '0%', 3303, NULL, '2019-06-10 09:54:18'),
 ('erSorcio', 0, 385, 1, 63, 5, 100, 20, 17, '85%', 444, NULL, '2019-07-11 17:54:39'),
-('Giammamariani', 0, 392, 1, 39, 5, 100, 22, 20, '90%', 449, 'like', '2020-02-12 22:16:37'),
+('Giammamare', 0, 392, 1, 39, 5, 100, 22, 20, '90%', 449, 'like', '2020-02-12 22:16:37'),
 ('Gianlucascalzo', 0, 867, 1, 56, 15, 150, 90, 0, '0%', 1451, NULL, '2019-06-21 10:37:58'),
-('giuliafratoni', 0, 129, 1, 19, 1, 100, 6, 4, '66%', 18, NULL, '2019-07-26 21:23:59'),
+('giuliaf', 0, 129, 1, 19, 1, 100, 6, 4, '66%', 18, NULL, '2019-07-26 21:23:59'),
 ('Giuseppe', 0, 877, 1, 90, 11, 120, 58, 44, '75%', 1074, 'like', '2019-05-24 09:57:48'),
+('IlFallitoNumero1', 0, 380, 1, 22, 5, 100, 21, 20, '95%', 455, NULL, '2023-03-27 18:04:49'),
 ('Lelozzo07', 0, 874, 1, 85, 14, 100, 77, 55, '71%', 1397, 'like', '2021-08-07 11:51:17'),
 ('Lorenzo', 0, 864, 1, 42, 11, 170, 51, 0, '0%', 1036, NULL, '2019-06-13 16:01:16'),
 ('Luigi', 0, 103, 1, 52, 3, 100, 13, 0, '0%', 211, NULL, '2019-06-06 18:37:28'),
-('salviniZorro', 0, 130, 0, 5, 3, 0, 14, 0, '0%', 339, NULL, '2019-06-11 13:41:39'),
+('macci', 0, 3784, 2, 259, 153, 720, 678, 515, '75%', 14971, NULL, '2022-08-07 17:49:30'),
+('Natetheninja', 0, 1129, 1, 102, 16, 290, 85, 76, '89%', 1433, NULL, '2022-09-30 20:36:58'),
+('salvoZorro', 0, 130, 0, 5, 3, 0, 14, 0, '0%', 339, NULL, '2019-06-11 13:41:39'),
 ('sandra', 0, 227, 0, 9, 5, 0, 23, 20, '86%', 547, NULL, '2019-06-11 13:56:17'),
 ('Simonemi', 0, 858, 1, 41, 11, 180, 50, 44, '88%', 1025, NULL, '2019-08-13 19:58:12'),
 ('wewe', 0, 405, 1, 17, 5, 150, 25, 20, '80%', 413, NULL, '2019-10-20 17:28:40'),
-('yolly98', 0, 3342, 6, 278, 106, 1200, 206, 189, '91%', 39723, 'like', '2021-08-06 21:18:57'),
+('yolly98', 0, 3342, 6, 278, 106, 1200, 206, 189, '91%', 39723, 'like', '2024-01-16 17:15:46'),
 ('aaaa', 1, 1, 1, 1, 0, 100, 0, 0, '0', -102, NULL, '2019-06-09 15:29:57'),
-('berlusca', 1, 6, 0, 0, 0, 0, 0, 0, '0', 0, 'like', '2019-05-15 21:55:11'),
+('brami', 1, 6, 0, 0, 0, 0, 0, 0, '0', 0, 'like', '2019-05-15 21:55:11'),
 ('Ciccio', 1, 1, 1, 0, 0, 100, 0, 0, '0', -103, NULL, '2019-06-06 11:54:01'),
 ('eleonora00', 1, 1, 1, 0, 0, 100, 0, 0, '0', -103, NULL, '2019-06-13 19:27:58'),
 ('erSorcio', 1, 130, 0, 3, 0, 0, 8, 8, '100%', 44, NULL, '2019-05-15 21:56:57'),
 ('Fabio', 1, 1, 1, 0, 0, 100, 0, 0, '0', -103, NULL, '2019-07-19 19:46:19'),
 ('Giuseppe', 1, 6, 0, 0, 0, 0, 0, 0, '0', 0, 'like', '2019-05-24 10:05:14'),
 ('yolly98', 1, 6, 0, 9, 5, 0, 25, 18, '72%', 500, 'like', '2019-07-19 10:14:02'),
-('berlusca', 2, 234, 0, 4, 0, 0, 0, 0, '0', 81, NULL, '2019-05-15 21:55:11'),
+('brami', 2, 234, 0, 4, 0, 0, 0, 0, '0', 81, NULL, '2019-05-15 21:55:11'),
 ('erSorcio', 2, 128, 0, 2, 0, 0, 7, 7, '100%', 65, NULL, '2019-05-15 21:55:11'),
 ('yolly98', 2, 63, 0, 7, 1, 0, 6, 4, '66%', 115, 'dislike', '2019-05-15 21:55:11'),
-('berlusca', 3, 177, 0, 8, 3, 30, 84, 34, '40%', 292, 'like', '2019-05-15 21:55:11'),
+('brami', 3, 177, 0, 8, 3, 30, 84, 34, '40%', 292, 'like', '2019-05-15 21:55:11'),
 ('erSorcio', 3, 87, 0, 7, 3, 150, 39, 39, '100%', 163, NULL, '2019-05-15 21:55:11'),
 ('yolly98', 3, 247, 0, 7, 3, 60, 35, 35, '100%', 276, 'like', '2019-05-15 21:55:11'),
 ('amministratore', 4, 207, 0, 5, 0, 0, 0, 0, '0', 61, NULL, '2019-05-24 11:54:46'),
-('berlusca', 4, 574, 0, 12, 0, 0, 12, 0, '0%', 621, 'dislike', '2019-05-15 21:55:11'),
+('brami', 4, 574, 0, 12, 0, 0, 12, 0, '0%', 621, 'dislike', '2019-05-15 21:55:11'),
 ('erSorcio', 4, 553, 0, 12, 0, 0, 8, 8, '100%', 47, NULL, '2019-05-15 21:55:11'),
 ('yolly98', 4, 240, 0, 4, 0, 0, 0, 0, '0', 84, NULL, '2019-05-26 15:08:44'),
-('berlusca', 5, 99, 1, 5, 2, 160, 5, 2, '40%', 49, NULL, '2019-05-15 21:55:11'),
+('brami', 5, 99, 1, 5, 2, 160, 5, 2, '40%', 49, NULL, '2019-05-15 21:55:11'),
 ('erSorcio', 5, 62, 1, 3, 1, 100, 3, 1, '33%', 10, NULL, '2019-05-15 21:55:11'),
 ('yolly98', 5, 34, 1, 5, 0, 100, 0, 0, '0', 0, 'dislike', '2019-05-15 21:55:11'),
 ('erSorcio', 6, 147, 0, 6, 1, 10, 10, 9, '90%', 114, NULL, '2019-05-15 21:55:11'),
 ('yolly98', 6, 170, 0, 4, 1, 0, 8, 8, '100%', 143, NULL, '2019-05-15 21:55:11'),
 ('alessiotor', 7, 204, 1, 11, 1, 200, 28, 0, '0%', -65, NULL, '2019-06-07 15:45:02'),
-('berlusca', 7, 215, 1, 7, 1, 985, 22, 14, '63%', 29608, 'like', '2019-05-15 21:55:11'),
+('brami', 7, 215, 1, 7, 1, 985, 22, 14, '63%', 29608, 'like', '2019-05-15 21:55:11'),
 ('eleonora00', 7, 197, 1, 73, 1, 200, 98, 14, '14%', -82, NULL, '2019-06-13 19:32:20'),
 ('emiliano', 7, 196, 1, 13, 1, 200, 38, 0, '0%', -69, NULL, '2019-06-06 18:21:25'),
 ('Fabio', 7, 206, 1, 35, 1, 200, 28, 14, '49%', -78, NULL, '2019-07-19 19:47:57'),
 ('HarryPotter', 7, 209, 1, 14, 1, 200, 25, 14, '56%', -69, NULL, '2019-07-25 20:11:30'),
 ('yolly98', 7, 212, 1, 12, 1, 1870, 15, 14, '93%', 29595, 'dislike', '2019-07-09 20:14:22'),
-('berlusca', 8, 135, 0, 4, 1, 0, 7, 4, '57%', 146, 'like', '2019-05-15 21:55:11'),
-('berlusca', 9, 27, 0, 1, 0, 0, 0, 0, '0', 29, NULL, '2019-05-15 21:55:11'),
+('brami', 8, 135, 0, 4, 1, 0, 7, 4, '57%', 146, 'like', '2019-05-15 21:55:11'),
+('brami', 9, 27, 0, 1, 0, 0, 0, 0, '0', 29, NULL, '2019-05-15 21:55:11'),
 ('CiccioPino', 9, 49, 1, 2, 0, 300, 0, 0, '0', -275, NULL, '2019-06-06 12:56:01'),
 ('yolly98', 9, 62, 1, 1, 0, 456, 0, 0, '0', 29165, NULL, '2019-05-15 21:55:11'),
-('berlusca', 10, 150, 0, 6, 0, 0, 0, 0, '0', 40, 'like', '2019-05-15 21:55:11'),
+('brami', 10, 150, 0, 6, 0, 0, 0, 0, '0', 40, 'like', '2019-05-15 21:55:11'),
 ('eleCica007', 10, 640, 0, 26, 0, 0, 0, 0, '0', 88, NULL, '2019-05-23 18:21:43'),
 ('yolly98', 10, 619, 0, 19, 0, 0, 0, 0, '0', 93, NULL, '2019-05-15 21:55:11'),
 ('yolly98', 11, 129, 0, 4, 0, 0, 0, 0, '0', 44, 'like', '2019-05-15 21:55:11'),
-('berlusca', 12, 170, 0, 4, 0, 0, 0, 0, '0', 59, NULL, '2019-05-15 21:55:11'),
+('brami', 12, 170, 0, 4, 0, 0, 0, 0, '0', 59, NULL, '2019-05-15 21:55:11'),
 ('yolly98', 12, 6, 0, 1, 0, 0, 0, 0, '0', 6, NULL, '2019-05-15 21:56:26'),
-('berlusca', 13, 6, 0, 2, 0, 0, 0, 0, '0', 3, NULL, '2019-05-15 21:55:11'),
+('brami', 13, 6, 0, 2, 0, 0, 0, 0, '0', 3, NULL, '2019-05-15 21:55:11'),
 ('yolly98', 15, 30, 0, 6, 0, 0, 5, 0, '0%', 8, 'like', '2019-05-15 21:55:11'),
 ('yolly98', 17, 67, 0, 8, 0, 0, 5, 0, '0%', 14, NULL, '2019-05-15 21:55:11'),
 ('yolly98', 19, 88, 0, 3, 0, 30, 3, 2, '66%', 7, NULL, '2019-05-15 21:55:11'),
@@ -1137,12 +1210,13 @@ INSERT INTO `punteggio_livello` (`user`, `id`, `metri`, `vitePerse`, `tempo`, `n
 ('yolly98', 62, 116, 1, 5, 0, 100, 2, 0, '0%', -76, NULL, '2019-07-23 18:27:21'),
 ('yolly98', 65, 62, 0, 4, 0, 0, 0, 0, '0', 21, NULL, '2019-07-25 15:52:44'),
 ('yolly98', 66, 414, 0, 21, 0, 0, 34, 0, '0%', 60, NULL, '2019-07-25 17:06:05'),
-('Danielciula', 69, 246, 0, 15, 0, 0, 0, 0, '0', 40, NULL, '2019-07-26 22:06:06'),
+('DanielSan', 69, 246, 0, 15, 0, 0, 0, 0, '0', 40, NULL, '2019-07-26 22:06:06'),
 ('Coroline', 70, 201, 0, 15, 0, 0, 0, 0, '0', 33, 'like', '2019-07-29 06:15:16'),
 ('Coroline', 71, 1, 0, 6, 0, 0, 0, 0, '0', 0, NULL, '2019-07-29 06:11:43'),
 ('yolly98', 72, 244, 1, 8, 0, 100, 0, 0, '0', -49, NULL, '2019-08-06 21:09:42'),
 ('yolly98', 73, 271, 1, 9, 0, 100, 0, 0, '0', -46, NULL, '2019-09-09 20:33:19'),
-('yolly98', 74, 24, 0, 3, 0, 0, 0, 0, '0', 10, NULL, '2020-06-22 13:40:29');
+('yolly98', 74, 24, 0, 3, 0, 0, 0, 0, '0', 10, NULL, '2022-07-30 10:33:29'),
+('macci', 75, 1, 1, 2, 0, 100, 0, 0, '0', -103, NULL, '2022-08-07 17:51:38');
 
 -- --------------------------------------------------------
 
@@ -1150,12 +1224,11 @@ INSERT INTO `punteggio_livello` (`user`, `id`, `metri`, `vitePerse`, `tempo`, `n
 -- Struttura della tabella `UTENTE`
 --
 
-CREATE TABLE IF NOT EXISTS `UTENTE` (
+CREATE TABLE `UTENTE` (
   `user` varchar(100) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `cognome` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`user`)
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1169,8 +1242,10 @@ INSERT INTO `UTENTE` (`user`, `nome`, `cognome`, `password`) VALUES
 ('amministratore', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('arberon', 'arber', 'arbon', '256e7888688b2fe137da559753bfc2d6'),
 ('asd', 'asd', 'as', '7815696ecbf1c96e6894b779456d330e'),
+('asdf', 'asdf', 'asdf', '912ec803b2ce49e4a541068d495ab570'),
 ('azzaz', 'asas', 'aracc', 'a09a457223d61f003d1c4ecde625f351'),
-('berlusca', 'silvio', 'berlusconi', '81dc9bdb52d04dc20036dbd8313ed055'),
+('Bane', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
+('brami', 'silvio', 'berlusconi', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('Cane', 'Cane', 'Cane', '43e277df3fdb75461844e25d2ac37f04'),
 ('cartello', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('Ciccio', 'Ciccio', 'Ciccia', 'a382e131ed798891b816f8d1e3ce1908'),
@@ -1178,7 +1253,7 @@ INSERT INTO `UTENTE` (`user`, `nome`, `cognome`, `password`) VALUES
 ('Coroline', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('Cristian', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('dan', 'dan', 'dan', '9180b4da3f0c7e80975fad685f7f134e'),
-('Danielciula', 'Daniel', 'Ciula', '89c246298be2b6113fb10ba80f3c6956'),
+('DanielSan', 'Daniel', 'Ciula', '89c246298be2b6113fb10ba80f3c6956'),
 ('Dave', 'Davide', 'Urboni', 'eb86b0e99ece10a72d5f9b130d4898ef'),
 ('Direttocamino80', '', '', 'fb2a54d637484c4ca8adb2343237b89f'),
 ('Direttocamino89', 'Riccardo', 'Massimiani', 'd2556f1678336f4808328355526e0223'),
@@ -1187,27 +1262,95 @@ INSERT INTO `UTENTE` (`user`, `nome`, `cognome`, `password`) VALUES
 ('emiliano', 'emiliano', 'pedica', '61adb4c5cba7045cda55fe2d1ae4799f'),
 ('erSorcio', 'peppe', 'fetish', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('Fabio', 'Fabio', 'Fabio', 'cfb4d5711d6bb261eb05108684d876aa'),
-('Giammamariani', 'Gian', 'Mariaji', '4f4f525fcfd047c4d97070d77afdcce1'),
+('Giammamare', 'Gian', 'Mariaji', '4f4f525fcfd047c4d97070d77afdcce1'),
 ('Gianlucascalzo', 'Gianluc', 'Mortaccitua', '58d6c070e041361865437ea9ffe2ef93'),
 ('gianni', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
-('giuliafratoni', 'Giulia', 'Fratoni', '3016f23dc9c405d357b58f0d0632d3c1'),
+('giuliaf', 'Giulia', 'Fratoni', '3016f23dc9c405d357b58f0d0632d3c1'),
 ('Giuseppe', '', '', '3ddb8fa146494db124256c9ce4c909c6'),
 ('HarryPotter', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
+('IlFallitoNumero1', 'Matteo', 'Oeo', '150be5b860e60a7fc7c7d9b9815e93d1'),
+('ilogof', '', '', '96e79218965eb72c92a549dd5a330112'),
+('Intergrudge', 'Intergrudge', 'Intergrudge', '9f65adfbf4a16093f595e6add9a96d56'),
 ('Lelozzo07', 'Emanuele', 'Cozzolino', '7c436754259c881d69b62d815caf28b5'),
+('logof', '', '', '96e79218965eb72c92a549dd5a330112'),
+('lol', 'lol', 'lol', 'cb28e00ef51374b841fb5c189b2b91c9'),
 ('Lorenzo', 'Lorenzo', 'Nardocci', '49f054dab23fa127d32c321d574fa054'),
 ('Luigi', 'Luigi', 'Antonelli', '16ad5892d13a0b7c9220684e52a548b1'),
 ('luigyyy', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
+('macci', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('mimmo', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
+('Natetheninja', 'Jim', 'Bob', '5fa6e2b76e05f97103b07ae5a81cddd9'),
 ('peppino', 'arcangelo', 'gabriPonte', '74b87337454200d4d33f80c4663dc5e5'),
 ('pitone21', 'severus', 'piton', '81dc9bdb52d04dc20036dbd8313ed055'),
-('salviniZorro', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
+('salvoZorro', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('sandra', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('sara', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('Simonemi', 'Simone', 'Emiliani', 'e68a714edab73db78a6743169aaa2c59'),
 ('superMario', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
+('sv001', '', '', 'bed128365216c019988915ed3add75fb'),
+('test', 'test', 'test', '098f6bcd4621d373cade4e832627b4f6'),
+('WaterSon', '', '', '11978659b0676239a80501a9ff174317'),
 ('We', 'Wr', 'Wr', 'ff1ccf57e98c817df1efcd9fe44a8aeb'),
 ('wewe', 'we', 'we', '2a7d544ccb742bd155e55c796de8e511'),
 ('yolly98', 'gigi', 'peppi', '81dc9bdb52d04dc20036dbd8313ed055');
+
+--
+-- Indici per le tabelle scaricate
+--
+
+--
+-- Indici per le tabelle `livello`
+--
+ALTER TABLE `livello`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `oggetto_box`
+--
+ALTER TABLE `oggetto_box`
+  ADD PRIMARY KEY (`id`,`indiceBox`);
+
+--
+-- Indici per le tabelle `oggetto_enemy`
+--
+ALTER TABLE `oggetto_enemy`
+  ADD PRIMARY KEY (`id`,`indiceEnemy`);
+
+--
+-- Indici per le tabelle `oggetto_floor`
+--
+ALTER TABLE `oggetto_floor`
+  ADD PRIMARY KEY (`id`,`indiceFloor`);
+
+--
+-- Indici per le tabelle `proprietario_livello`
+--
+ALTER TABLE `proprietario_livello`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_ProprietarioLivello` (`user`);
+
+--
+-- Indici per le tabelle `punteggio_livello`
+--
+ALTER TABLE `punteggio_livello`
+  ADD PRIMARY KEY (`id`,`user`),
+  ADD KEY `FK_punteggioLivello` (`user`);
+
+--
+-- Indici per le tabelle `UTENTE`
+--
+ALTER TABLE `UTENTE`
+  ADD PRIMARY KEY (`user`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `livello`
+--
+ALTER TABLE `livello`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- Limiti per le tabelle scaricate
@@ -1243,6 +1386,7 @@ ALTER TABLE `proprietario_livello`
 --
 ALTER TABLE `punteggio_livello`
   ADD CONSTRAINT `FK_punteggioLivello` FOREIGN KEY (`user`) REFERENCES `UTENTE` (`user`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
